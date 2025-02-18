@@ -7,7 +7,19 @@ const boardElement = document.querySelector(".board");
 const messageElement = document.querySelector("#message");
 /*-------------------------------- Functions --------------------------------*/
 function handleClick() {
-  //todo: check if player is x or o and place corresponding symbol on board
+  if (event.currentTarget.innerText !== "") {
+    console.log(`handleClick.invalid-click: Square already filled`);
+    return;
+  }
+  if (isX) {
+    event.currentTarget.innerText = "X";
+    isX = false;
+  } else {
+    event.currentTarget.innerText = "O";
+    isX = true;
+  }
+  let xOrO = isX ? "O" : "X";
+  console.log(`handleClick.successful: Player ${xOrO}`);
 }
 
 function renderGameInitial() {
@@ -15,6 +27,7 @@ function renderGameInitial() {
     sqr.textContent = "";
   }
   messageElement.innerText = "Begin Game. Player X's Turn";
+  isX = true;
 }
 /*----------------------------- Event Listeners -----------------------------*/
 document.querySelectorAll(".sqr").forEach(function (sqr) {
