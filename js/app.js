@@ -2,23 +2,22 @@
 const states = ["win", "lose", "tie"];
 /*---------------------------- Variables (state) ----------------------------*/
 let isX = true; //is player x or o?
+let xOrO = "O";
 /*------------------------ Cached Element References ------------------------*/
 const boardElement = document.querySelector(".board");
 const messageElement = document.querySelector("#message");
 /*-------------------------------- Functions --------------------------------*/
 function handleClick() {
+  messageElement.innerText = `Player ${xOrO}'s Turn`;
+  xOrO = isX ? "X" : "O";
   if (event.currentTarget.innerText !== "") {
     console.log(`handleClick.invalid-click: Square already filled`);
     return;
   }
-  if (isX) {
-    event.currentTarget.innerText = "X";
-    isX = false;
-  } else {
-    event.currentTarget.innerText = "O";
-    isX = true;
-  }
-  let xOrO = isX ? "O" : "X";
+
+  event.currentTarget.innerText = xOrO;
+  isX = !isX;
+
   console.log(`handleClick.successful: Player ${xOrO}`);
 }
 
@@ -33,3 +32,7 @@ function renderGameInitial() {
 document.querySelectorAll(".sqr").forEach(function (sqr) {
   sqr.addEventListener("click", handleClick);
 });
+
+document.querySelector("#reset").addEventListener("click", renderGameInitial);
+
+renderGameInitial();
