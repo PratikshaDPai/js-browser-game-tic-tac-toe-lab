@@ -1,7 +1,8 @@
-# ✨Tic-Tac-Toe ✨
+# ✨Tic-Tac-Toe (vs Computer)✨
 
-Welcome to **Tic-Tac-Toe** – a fun and interactive game!  
-This version of Tic-Tac-Toe **detects the winning row, column, or diagonal using JavaScript**, highlights it with a **neon glow**, and **celebrates the winner with confetti!** 🎊  
+Welcome to **Tic-Tac-Toe** – a fun and interactive game with a computer (AI?) opponent!  
+This version of Tic-Tac-Toe has the user playing against the computer.
+It **detects the winning row, column, or diagonal using JavaScript**, highlights it with a **neon glow**, and **celebrates the winner with confetti!** 🎊  
 
 🕹️ **Play Now:**  
 👉 [Live Demo](https://pratikshadpai.github.io/js-browser-game-tic-tac-toe-lab/)
@@ -10,12 +11,12 @@ This version of Tic-Tac-Toe **detects the winning row, column, or diagonal using
 
 ##  Features
 
- **Classic Tic-Tac-Toe Mechanics** – Choose between "X" or "O" and play against a friend!  
- **Neon Glow for Winning Line** – The winning row, column, or diagonal **lights up in neon purple**.  
- **Confetti Celebration** – 🎉 When a player wins, colorful **confetti explodes on the screen**!  
- **Smooth Animations** – The game board has **subtle hover effects** and **smooth transitions**.  
- **Fully Responsive** – Works on **desktop & mobile** for on-the-go gaming.  
- **Reset Button** – Quickly clear the board and start a new match.  
+ - **Classic Tic-Tac-Toe Mechanics** – Choose between "X" or "O" and play against the computer!  
+ - **Neon Glow for Winning Line** – The winning row, column, or diagonal **lights up in neon purple**.  
+ - **Confetti Celebration** – 🎉 When a player wins, colorful **confetti explodes on the screen**!  
+ - **Smooth Animations** – The game board has **subtle hover effects** and **smooth transitions**.  
+ - **Fully Responsive** – Works on **desktop & mobile** for on-the-go gaming.  
+ - **Reset Button** – Quickly clear the board and start a new match.  
 
 ---
 
