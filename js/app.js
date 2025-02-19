@@ -2,7 +2,7 @@
 const states = ["win", "lose", "tie"];
 /*---------------------------- Variables (state) ----------------------------*/
 let isX = true; //is player x or o?
-let xOrO = "O";
+let turn = "O";
 let turnCount = 0;
 let winner;
 let tie = false;
@@ -24,13 +24,13 @@ function handleClick() {
     console.log(`handleClick.invalid-click: Square already filled`);
     return;
   }
-  messageElement.innerText = `Player ${xOrO}'s Turn`;
-  xOrO = isX ? "X" : "O";
+  messageElement.innerText = `Player ${turn}'s Turn`;
+  turn = isX ? "X" : "O";
 
-  event.currentTarget.innerText = xOrO;
+  event.currentTarget.innerText = turn;
   isX = !isX;
 
-  console.log(`handleClick.successful: Player ${xOrO}`);
+  console.log(`handleClick.successful: Player ${turn}`);
 
   const board = computeBoard(boardElement);
   winner = getWinner(board);
@@ -130,7 +130,7 @@ function renderGameInitial() {
   tie = false;
   turnCount = 0;
   winner = undefined;
-  xOrO = "O";
+  turn = "O";
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
