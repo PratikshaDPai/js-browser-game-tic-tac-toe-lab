@@ -1,4 +1,4 @@
-# ✨Tic-Tac-Toe (vs Computer)✨
+# ✨[Tic-Tac-Toe (vs Computer)](https://pratikshadpai.github.io/js-browser-game-tic-tac-toe-lab/)✨
 
 Welcome to **Tic-Tac-Toe** – a fun and interactive game with a computer (AI?) opponent!  
 This version of Tic-Tac-Toe has the user playing against the computer.
