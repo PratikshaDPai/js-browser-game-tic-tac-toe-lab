@@ -10,7 +10,7 @@ let tie = false;
 const boardElement = document.querySelector(".board");
 const messageElement = document.querySelector("#message");
 /*-------------------------------- Functions --------------------------------*/
-function handleClick() {
+function handleClick(event) {
   if (typeof winner === "string") {
     return;
   }
@@ -18,6 +18,7 @@ function handleClick() {
     return;
   }
 
+  event.currentTarget.classList.add("occupied");
   turnCount++;
 
   if (event.currentTarget.innerText !== "") {
@@ -124,6 +125,7 @@ function getWinner(board) {
 function renderGameInitial() {
   for (let sqr of boardElement.children) {
     sqr.textContent = "";
+    sqr.classList.remove("occupied");
   }
   messageElement.innerText = "Begin Game. Player X's Turn";
   isX = true;

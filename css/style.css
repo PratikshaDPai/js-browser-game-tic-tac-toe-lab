@@ -50,7 +50,8 @@ h1 {
   font-size: 64px;
 }
 
-.sqr:hover {
+.sqr:hover,
+.occupied {
   background-color: salmon;
 }
 
