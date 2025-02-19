@@ -3,11 +3,23 @@ const states = ["win", "lose", "tie"];
 /*---------------------------- Variables (state) ----------------------------*/
 let isX = true; //is player x or o?
 let xOrO = "O";
+let turnCount = 0;
+let winner;
+let tie = false;
 /*------------------------ Cached Element References ------------------------*/
 const boardElement = document.querySelector(".board");
 const messageElement = document.querySelector("#message");
 /*-------------------------------- Functions --------------------------------*/
 function handleClick() {
+  if (typeof winner === "string") {
+    return;
+  }
+  if (tie) {
+    return;
+  }
+
+  turnCount++;
+
   if (event.currentTarget.innerText !== "") {
     console.log(`handleClick.invalid-click: Square already filled`);
     return;
@@ -21,10 +33,13 @@ function handleClick() {
   console.log(`handleClick.successful: Player ${xOrO}`);
 
   const board = computeBoard(boardElement);
-  const winner = getWinner(board);
+  winner = getWinner(board);
   console.log(`winner`, winner);
   if (typeof winner === "string") {
     messageElement.innerText = `🎉 Player ${winner} wins! 🎉`;
+  } else if (turnCount === 9) {
+    tie = true;
+    messageElement.innerText = "It's a tie!";
   }
 }
 
@@ -112,6 +127,10 @@ function renderGameInitial() {
   }
   messageElement.innerText = "Begin Game. Player X's Turn";
   isX = true;
+  tie = false;
+  turnCount = 0;
+  winner = undefined;
+  xOrO = "O";
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
