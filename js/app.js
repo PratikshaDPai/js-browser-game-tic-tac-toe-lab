@@ -5,11 +5,12 @@ let turn = "O";
 let turnCount = 0;
 let winner;
 let tie = false;
+let isBoardLocked = false;
 /*------------------------ Cached Element References ------------------------*/
 const boardElement = document.querySelector(".board");
 const messageElement = document.querySelector("#message");
 /*-------------------------------- Functions --------------------------------*/
-function handleClick(event) {
+function handleClick(event, isComputer) {
   if (typeof winner === "string") {
     return;
   }
@@ -18,6 +19,9 @@ function handleClick(event) {
   }
   if (event.currentTarget.innerText !== "") {
     console.log(`handleClick.invalid-click: Square already filled`);
+    return;
+  }
+  if (isBoardLocked && !isComputer) {
     return;
   }
 
@@ -41,6 +45,22 @@ function handleClick(event) {
   } else if (turnCount === 9) {
     tie = true;
     messageElement.innerText = "It's a tie!";
+  } else if (!isComputer) {
+    // Get all the empty squares
+    const squares = Array.from(boardElement.children).filter(
+      (square) => square.innerText === ""
+    );
+
+    // Pick a random square
+    const randomIndex = Math.floor(Math.random() * squares.length);
+    const newSquare = squares[randomIndex];
+
+    // Lock the board while the computer is "thinking"
+    isBoardLocked = true;
+    setTimeout(() => {
+      handleClick({ currentTarget: newSquare }, true);
+      isBoardLocked = false;
+    }, 200);
   }
 }
 
