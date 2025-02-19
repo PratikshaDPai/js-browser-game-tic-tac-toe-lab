@@ -16,14 +16,14 @@ function handleClick(event) {
   if (tie) {
     return;
   }
-
-  event.currentTarget.classList.add("occupied");
-  turnCount++;
-
   if (event.currentTarget.innerText !== "") {
     console.log(`handleClick.invalid-click: Square already filled`);
     return;
   }
+
+  event.currentTarget.classList.add("occupied");
+  turnCount++;
+
   messageElement.innerText = `Player ${turn}'s Turn`;
   turn = isX ? "X" : "O";
 
