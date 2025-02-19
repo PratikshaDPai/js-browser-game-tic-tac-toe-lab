@@ -1,20 +1,91 @@
 body {
-  background-color: gainsboro;
-  /* Use a system font, if none are available use an available sans-sarif */
-  font-family: system-ui, sans-serif;
-  margin: 0;
+  background: linear-gradient(120deg, #fbc4ab, #ff9a8b);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: rgb(61, 1, 23);
+  font-family: "Dancing Script";
+  font-weight: 100;
+  font-style: normal;
 }
 
+h1 {
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+}
+
+#message {
+  font-family: "Grechen Fuemen";
+  min-height: 20px;
+}
 .board {
+  font-weight: 700;
+  color: antiquewhite;
+  font-family: "Roboto", sans-serif;
   display: flex;
   flex-wrap: wrap;
   width: 325px;
 }
 
 .sqr {
+  margin: 2px;
+  font-weight: bold;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30%;
   aspect-ratio: 1/1;
   border: 3px solid black;
   font-size: 64px;
-  text-align: center;
+}
+
+.sqr:hover {
+  background-color: salmon;
+}
+
+button {
+  margin-top: 25px;
+  align-self: center;
+  font-family: "Delicious Handrawn";
+  font-style: italic;
+  font-weight: bold;
+  font-size: 30px;
+  color: antiquewhite;
+  padding: 15px 20px;
+  border-radius: 15px;
+  background: salmon;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 200px;
+}
+
+button:hover {
+  background: rgb(246, 98, 82);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  button {
+    display: block;
+    touch-action: manipulation; /* Improves touch response */
+    -webkit-tap-highlight-color: transparent; /* Removes tap highlight on iOS */
+  }
+
+  header {
+    font-size: larger;
+  }
 }
