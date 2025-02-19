@@ -63,6 +63,13 @@ function isValidWinner(s) {
   return s === "X" || s === "O";
 }
 
+function setWinningSquares(coordinates) {
+  for (const [row, col] of coordinates) {
+    const square = boardElement.children[row * 3 + col];
+    square.classList.add("winning");
+  }
+}
+
 /**
  * @param {string[][]} board
  * @returns {"X" | "O" | undefined}
@@ -80,6 +87,11 @@ function getWinner(board) {
       }
 
       if (col === 2) {
+        setWinningSquares([
+          [row, 0],
+          [row, 1],
+          [row, 2],
+        ]);
         return firstCellInRow;
       }
     }
@@ -97,6 +109,11 @@ function getWinner(board) {
       }
 
       if (row === 2) {
+        setWinningSquares([
+          [0, col],
+          [1, col],
+          [2, col],
+        ]);
         return firstCellInCol;
       }
     }
@@ -108,6 +125,11 @@ function getWinner(board) {
     board[0][0] === board[1][1] &&
     board[1][1] === board[2][2]
   ) {
+    setWinningSquares([
+      [0, 0],
+      [1, 1],
+      [2, 2],
+    ]);
     return board[0][0];
   }
 
@@ -116,6 +138,11 @@ function getWinner(board) {
     board[0][2] === board[1][1] &&
     board[1][1] === board[2][0]
   ) {
+    setWinningSquares([
+      [0, 2],
+      [1, 1],
+      [2, 0],
+    ]);
     return board[0][2];
   }
 
@@ -126,6 +153,7 @@ function renderGameInitial() {
   for (let sqr of boardElement.children) {
     sqr.textContent = "";
     sqr.classList.remove("occupied");
+    sqr.classList.remove("winning");
   }
   messageElement.innerText = "Begin Game. Player X's Turn";
   isX = true;

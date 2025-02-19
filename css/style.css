@@ -50,9 +50,24 @@ h1 {
   font-size: 64px;
 }
 
-.sqr:hover,
+.sqr:hover:not(.winning),
 .occupied {
-  background-color: salmon;
+  background-color: rgba(250, 128, 114, 0.5);
+}
+
+@keyframes neonGlow {
+  0% { box-shadow: 0 0 20px rgba(213, 87, 245,1); }
+  50% { box-shadow: 0 0 50px rgb(231, 77, 221); }
+  100% { box-shadow: 0 0 20px rgba(227, 58, 151, 0.8); }
+  
+}
+.winning {
+  background: rgb(250, 116, 136);
+  animation: neonGlow 1.5s infinite alternate;
+  /* box-shadow: 0 0 10px rgba(186, 85, 211, 0.8),
+    /* Inner soft glow (medium orchid) */ 0 0 20px rgba(147, 112, 219, 0.9),
+    /* Medium neon glow (light purple) */ 0 0 30px rgba(255, 0, 255, 1); /* Outer neon glow (magenta) */
+  transition: all 0.3s ease-in-out; */
 }
 
 button {
