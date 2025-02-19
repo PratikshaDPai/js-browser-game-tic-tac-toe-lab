@@ -1,5 +1,4 @@
 /*-------------------------------- Constants --------------------------------*/
-const states = ["win", "lose", "tie"];
 /*---------------------------- Variables (state) ----------------------------*/
 let isX = true; //is player x or o?
 let turn = "O";
@@ -37,7 +36,8 @@ function handleClick(event) {
   winner = getWinner(board);
   console.log(`winner`, winner);
   if (typeof winner === "string") {
-    messageElement.innerText = `🎉 Player ${winner} wins! 🎉`;
+    messageElement.innerText = `Player ${winner} wins! 🎉`;
+    celebrateWin();
   } else if (turnCount === 9) {
     tie = true;
     messageElement.innerText = "It's a tie!";
@@ -161,6 +161,24 @@ function renderGameInitial() {
   turnCount = 0;
   winner = undefined;
   turn = "O";
+}
+
+function celebrateWin() {
+  confetti({
+    particleCount: 150, // Number of confetti pieces
+    spread: 80, // Spread of confetti
+    origin: { y: 0.6 }, // Adjust confetti start position
+    colors: ["#ff66b2", "#ffcc00", "#8000ff"], // Custom colors
+  });
+
+  // Burst effect
+  setTimeout(() => {
+    confetti({
+      particleCount: 100,
+      spread: 100,
+      origin: { y: 0.5 },
+    });
+  }, 500);
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
