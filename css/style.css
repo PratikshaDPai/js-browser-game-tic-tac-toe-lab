@@ -18,6 +18,7 @@ body {
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none;    /* Firefox */
   -ms-user-select: none;     /* IE/Edge */
+  margin: 0;
 }
 
 h1 {

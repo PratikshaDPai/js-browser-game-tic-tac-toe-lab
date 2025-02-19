@@ -90,10 +90,6 @@ function setWinningSquares(coordinates) {
   }
 }
 
-/**
- * @param {string[][]} board
- * @returns {"X" | "O" | undefined}
- */
 function getWinner(board) {
   // check rows
   for (let row = 0; row < 3; row++) {
